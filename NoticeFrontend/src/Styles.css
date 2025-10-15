@@ -1,0 +1,762 @@
+/* Estilos locales del proyecto */
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0.1rem;
+  /* text-align: center; */
+  /* font-family: 'Segoe UI',Tahoma, Verdana, sans-serif; */
+  font-family: 'Roboto', sans-serif;  
+  margin-top: 0px;
+  padding-top: 0px;
+  --color-thead: #153eb8;
+  --text-thead: white;
+}
+
+.logo {
+  height: 4em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 500ms;
+}
+
+
+/* Clases para diferentes pesos */
+.roboto-light {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.roboto-regular {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.roboto-medium {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+.roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+.roboto-small-color {
+  font-family: 'Roboto', sans-serif;
+  font-size: small;
+  color: rgb(0, 110, 255);
+  padding-left: 0;
+}
+
+
+/* Aplica la animación SOLO al logo de React */
+.logo.react {
+  animation: logo-spin infinite 3s linear;  /*Velocidad de Giro del logo*/
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Personalizados */
+.bg-my-header {
+    background-color: #101111; /* Color turquesa claro */
+    border-radius: 0.15rem;   /* Equivalente a 'rounded' de Bootstrap (6px) */
+    padding: .8rem;           /* Equivalente a 'p-4' de Bootstrap (24px) */
+    margin-bottom: 1px;     /* Equivalente a 'mb-4' de Bootstrap */    
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: normal;
+    unicode-bidi: isolate;
+    margin-bottom: 2px;
+    max-width: 100%;
+    color: whitesmoke;
+}
+
+.div-center {
+   display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;    /* Centrado vertical */
+  height: 50vh;          /* Ocupa toda la altura visible */
+  margin: 0;
+  padding: 0;
+  text-align: center;     /* Para contenido inline/no-flex */
+}
+
+.my-compact-table {
+  /* --bs-table-line-height: 1.0; */
+  font-size: 10pt;
+}
+
+.my-compact-table tr {
+  padding: 0rem;
+  /* padding-bottom: .1rem; */
+  font-size: small;
+  vertical-align: center;
+}
+
+.my-compact-table td {
+  padding: 0rem;
+}
+
+.my-btn-compact {
+  padding: 0.25rem 0.5rem !important; /* 4px 8px */
+  font-size: 0.8rem !important;
+  line-height: 1.2;
+}
+
+.my-div-center-text {
+   display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  align-items: center;       /* centra verticalmente */
+  height: 3rem;             /* o el alto que necesites */
+}
+
+.my-theader {
+  text-align: left !important;            /* Alinea el texto a la izquierda */
+  vertical-align: middle;      /* Centra verticalmente */
+  background-color: #f0f4f8;   /* Cambia el color de fondo */
+  padding: 12px;               /* Espaciado interno */
+  font-weight: bold;  
+}
+
+/* Versión con máxima especificidad */
+table.table thead.my-theader,
+table.table thead.my-theader th {
+  color: white !important; /* Color texto */
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* padding: 10px 24px 10px 16px; No funciona*/
+  /*Ancho de theader*/
+  height: 2rem;                          /* Altura fija */
+  min-height: 2rem;                      /* Altura mínima */  
+  vertical-align: middle;
+  text-align: center;
+}
+
+.my-div-centrado-h {
+  text-align: center;     /* Para contenido inline/no-flex */
+}
+
+.my-label{
+  font-family: 'Roboto', sans-serif;
+  font-size: 10pt;
+  color: rgb(48, 31, 112);  
+}
+
+.my-full-width-split {
+  width: 100%;
+  display: flex;    
+  font-size: inherit;
+}
+
+.my-split-15 {
+  width: 15%;
+  margin-top: 2px;
+}
+
+.my-split-85 {
+  width: 85%;
+}
+
+.my-split-15 > *, .my-split-85 > * {
+  height: 35px; /* o la altura que prefieras */
+  box-sizing: border-box;
+  padding-right: 1px;  
+}
+
+.input-matched-height {
+  height: 29.5px;
+  min-height: 29.5px; /* Fallback por si height:100% no funciona */
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;  
+}
+
+/* Estilos de focus idénticos al form-select */
+.input-matched-height:focus {
+  border-color: #86b7fe;
+  outline: 10;
+  box-shadow: 0 0 0 0.10rem rgba(13, 110, 253, 0.25);
+  font-family: 'Roboto';
+  font-size: small;
+}
+
+.form-select-sm {
+  color: rgb(48, 83, 156);
+  font-size: small;
+  font-family: 'Roboto', sans-serif ;
+}
+
+.form-control {
+  height: 30px;
+  width: 100%;
+  min-width: 50px;
+  font-family: 'Roboto', sans-serif;    
+  font-size: small;
+}
+
+.form-select {
+  height: 30px;
+  width: 100%;
+  min-width: 50px;
+  font-family: 'Roboto', sans-serif;    
+  font-size: small;
+}
+
+
+
+.form-control:focus {
+  /* background-color: #5e8674;   */
+  margin-right: 0.2rem;    
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.custom-tooltip .tooltip-inner {
+  background-color: #dc3545 !important;
+  color: white !important;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.custom-tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #dc3545 !important;
+}
+
+.modal-dialog-custom {
+  display: flex;
+  margin: auto;
+  margin-bottom: auto;
+  margin-top: 15vh; /*Centrado vertical --> (100vh - 70vh) / 2 = 15vh */
+  width: 50%;
+  height: 70vh;
+  align-items: center;
+  justify-content: center;
+
+  /* No necesitas márgenes si usas flexbox en el padre */
+}
+
+.modal-content-custom {
+  width: 100%;
+  height: 100%;
+  background-color: #15b86c;
+}
+
+.modal-title-custom {
+  background-color: #15b86c;
+}
+
+/* modal-overrides.css */
+.modal-show-custom {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.close {
+  opacity: 1;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+}
+
+.close i {
+  color: #6c757d; /* Color gris similar al original */
+  transition: color 0.3s;
+}
+
+.close:hover i {
+  color: #000; /* Color negro al hacer hover */
+}
+
+.btn-abrir-formulario {
+  /* padding: 8px 16px; */
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;  
+}
+
+.error-message {
+  color: red;
+  font-size: 0.7rem;
+  text-align: right;
+}
+
+.card-shadow-custom {
+  padding: 1rem;
+  padding-top: 0;
+  width: 600px;
+}
+
+/* Estilo para el botón de cerrar */
+.close {
+  font-size: 1.5rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* Estilo para el botón de cerrar */
+.btn-close-custom {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1.5rem;
+  color: #6c757d;
+  transition: color 0.2s;
+}
+
+/* Contenedor principal del modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: rgba(250, 247, 247, 0.5) !important; /* Rojo con 50% de opacidad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  padding: 15px;
+}
+
+/* Contenedor responsivo */
+.modal-container {
+  width: 100%;
+  max-width: 500px; /* Ancho máximo en pantallas grandes */
+}
+
+/* Tarjeta del modal */
+.modal-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Encabezado */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* Botón de cerrar */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #495057;
+}
+
+/* Cuerpo del modal */
+.modal-body {
+  padding: 1rem;
+}
+
+/* Grupos de formulario */
+.form-group {
+  margin-bottom: 1rem;
+  font-family: 'Roboto', sans-serif;    
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* Pie del modal */
+.modal-footer {
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+  text-align: right;
+}
+
+/* Validación */
+.invalid-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.my-hr {
+  margin-top: 0;
+}
+
+.notificacion-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group input.error {
+  border-color: #dc3545;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.form-container {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.form-button {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.form-button:hover {
+  background-color: #1d4ed8;
+}
+
+.form-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-button-group {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+}
+
+.fs-8 {
+    font-size: 0.70rem !important;
+}
+
+::placeholder {
+    color: #6b7280; /* Color gris */
+    font-size: 0.75rem; /* Tamaño más pequeño */
+    opacity: 1; /* Asegura que no sea transparente */
+}
+
+.my-label {  
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.spinner-text {
+  margin-top: 0rem;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Esto es para la animación de los tres puntitos del cargando spinner */
+.dot {
+ opacity: 0;
+ animation: dotAnimation 1.5s infinite;
+ }
+ .dot:nth-child(1) { animation-delay: 0.0s; }
+ .dot:nth-child(2) { animation-delay: 0.2s; }
+ .dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes dotAnimation {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+  }
+
+.mi-div-con-roboto {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 390; /* Peso regular */ 
+ }
+
+ .my-text-sm {
+  font-size: smaller;
+ }
+
+
+ .notification-search {
+    margin-bottom: 5px;
+    padding: 1px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;    
+}
+
+.search-input-group {
+    display: flex;
+    gap: 1px;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 40px; /* Altura mínima más compacta */    
+}
+
+.search-input {
+    flex: 1;
+    min-width: 100px;
+    padding: 10px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 10pt;
+    height: 35px; /* Altura fija más compacta */
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);    
+}
+
+.search-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.search-btn, .cancel-btn {
+    padding: 8px 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.search-btn {
+    background-color: #007bff;
+    color: white;
+    font-size: smaller;
+    margin-left: 4pt;
+}
+
+.search-btn:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.search-btn:disabled {
+    background-color: #959a9e;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.cancel-btn {
+    background-color: #d4dbe0;
+    color: white;
+    font-size: smaller;
+}
+
+.cancel-btn:hover:not(:disabled) {
+    background-color: #5d6770;
+}
+
+.cancel-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-input {
+        min-width: 100%;
+        margin-bottom: 8px;        
+    }
+    
+    .search-buttons {
+        justify-content: center;        
+    }
+}
