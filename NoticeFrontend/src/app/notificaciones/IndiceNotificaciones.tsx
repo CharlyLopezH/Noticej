@@ -4,6 +4,7 @@ import Spinner from "../../utils/Spinner";
 import useNotificacionesData from "../../hooks/useNotificacionesData ";
 import TablaNotificaciones from "../notificaciones/TablaNotificaciones";
 import BuscadorNotificaciones from "../notificaciones/BuscadorNotificaciones";
+import Autorizado from "../auth/Autorizado";
 
 const IndiceNotificaciones = () => {
   //Variables de estado
@@ -26,7 +27,8 @@ const handleSearchTermChange = (nuevoValor: string) => {
 // Solo dispara la búsqueda cuando el usuario hace click en 🔍
 const ejecutarBusquedaCadena = useCallback((cadena: string) => {
   if (cadena.trim() !== "") {
-    const urlBusqueda = `https://localhost:7015/notificaciones/buscarNotificaciones/${cadena}?`;
+    //const urlBusqueda = `https://localhost:7015/notificaciones/buscarNotificaciones/${cadena}?`;
+    const urlBusqueda = `${apiURL}/buscarNotificaciones/${cadena}?`;
     setApiURL(urlBusqueda);
     console.log("Ejecutando búsqueda con URL:", urlBusqueda);
   } else {
@@ -60,6 +62,12 @@ const ejecutarBusquedaCadena = useCallback((cadena: string) => {
 
     return (                
     <>        
+
+    <Autorizado autorizado={<> Está Autorizado</>} 
+                noAutorizado={<> Usuario No Autorizado</>}
+                role={"adminis"}
+    />  
+
     <div className="my-div-center-text">
     
       <code> Índice de Notificaciones </code>

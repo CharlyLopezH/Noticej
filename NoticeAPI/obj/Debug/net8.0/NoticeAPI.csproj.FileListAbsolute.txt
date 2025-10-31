@@ -170,3 +170,4 @@ C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\rjimswa.ds
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\NoticeAPI.sourcelink.json

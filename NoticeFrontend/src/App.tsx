@@ -1,54 +1,43 @@
 import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Menu from "./app/Menu";
+import IndiceNotificaciones from "./app/notificaciones/IndiceNotificaciones";
+import CrearNotificacion from "./app/notificaciones/CrearNotificacion";
+import type { claim } from "./app/auth/auth.model";
+import AutenticacionContext from "./app/auth/AutenticacionContext";
 
-const App = ({ username = "Carlos" }) => {
+const App = () => {
+  const [claims,setClaims]=useState<claim[]>([
+        {nombre:'email', valor:'carlos@gmail.com'},
+        {nombre:'role', valor:'adminis'}
+  ]);
 
-    //Arreglo de Objetos
-    const opcionesList=[
-            { clave: 0, valor: "0 Cero 0" },
-            { clave: 1, valor: "1 Uno 1" },
-            { clave: 2, valor: "2 Dos 2" },
-            { clave: 3, valor: "3 Tres 3" },
-            { clave: 4, valor: "5 Cuatro 4" },
-            { clave: 5, valor: "5 Cinco 5" },
-            { clave: 6, valor: "6 Seis 6" }
-          ]
+  const actualizar=(claims:claim[])=>{
+      setClaims(claims);
+  }
 
-
-    //Si el fomulario está abriendo (crear) el clave es nulo
-    const [opcionDefault,setOpcionDefault]=useState(5);
-
-  return (
+  return(
     <>
-      <div className="container-fluid">Hola {username}
-      <p>Formulario para Editar registros</p>
-      </div>
-      <hr />
-
-      <p/>
-      
-      <div>
-
-        <select 
-            className="form-select" 
-            id="floatingSelect"  
-            aria-label="Floating label select ejemplo"
-            value={opcionDefault}
-            //Modifica la variable de estado
-            onChange={(e) => setOpcionDefault(Number(e.target.value))}                        
-            >
-          <option value={""}>Lista de Opciones</option>
-            {opcionesList.map((opcionesList) => ( //Esto rellena el combo de opciones
-            <option 
-                key={opcionesList.clave}    
-                value={opcionesList.clave}                
-            >
-            {opcionesList.valor}
-            </option>
-            ))}
-        </select>
-        
-      </div>
-    </>
-  );
+    <BrowserRouter>  
+    <AutenticacionContext.Provider value={{claims,actualizar}}>
+    
+    <div className="container bg-my-header">
+        <span className="navbar-brand mb-0 h1 text-primary">
+          <i className="bi bi-bell-fill me-2"></i>
+          NotiCej
+         </span>
+        <span/>- Control de Notificaciones
+        <span>  <Menu/> </span>
+    </div>
+      <Routes>
+      {/* Inces es la página por defecto */}      
+      <Route index element={<IndiceNotificaciones/>} />
+         {/* Esta es una nueva ruta; se accede con url/crear */}
+    <Route path="/notificaciones/crear" element={<CrearNotificacion/>} />
+    </Routes>
+    </AutenticacionContext.Provider>
+  </BrowserRouter>
+  </>
+  )
 };
 export default App;
