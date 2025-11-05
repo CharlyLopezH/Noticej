@@ -63,9 +63,9 @@ const ejecutarBusquedaCadena = useCallback((cadena: string) => {
     return (                
     <>        
 
-    <Autorizado autorizado={<> Está Autorizado</>} 
+    <Autorizado autorizado={<> User Autorizado</>} 
                 noAutorizado={<> Usuario No Autorizado</>}
-                role={"adminis"}
+                role={"admin"} //Harcodeado el rol de administrador
     />  
 
     <div className="my-div-center-text">

@@ -9,10 +9,11 @@ const Autorizado=(props:AutorizadoProps)=>{
 
     useEffect(()=>{
         if(props.role){
-            //Verificación del rol del usuario
-            const indice = claims.findIndex(claim=>
-                        claim.nombre==='role' && claim.valor===props.role)    
-                        SetUserAutorizado(indice > -1);
+            //Verificación del rol del usuario; revisa que exista un rol
+             const indice = claims.findIndex(claim=>
+                          claim.nombre==='role' && claim.valor===props.role
+                          )    
+                         SetUserAutorizado(indice > -1);
         } else {
             SetUserAutorizado(claims.length>0);
         }
