@@ -8,8 +8,8 @@ const Autorizado=(props:AutorizadoProps)=>{
     const {claims} = useContext(AutenticacionContext);
 
     useEffect(()=>{
-        if(props.role){
-            //Verificación del rol del usuario; revisa que exista un rol
+        //Verificación del rol del usuario; revisa que exista un rol
+        if(props.role){ //La propiedad usuario tiene nombre y tiene un rol
              const indice = claims.findIndex(claim=>
                           claim.nombre==='role' && claim.valor===props.role
                           )    

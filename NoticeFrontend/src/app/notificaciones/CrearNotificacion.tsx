@@ -8,8 +8,7 @@ import { convertirFechaAISO } from "../../utils/utilerias";
 import { urlNotificaciones } from "../../utils/endpoints";
 import { handleApiError } from "../../utils/errorHandler";
 
-const CrearNotificacion=()=> {
-  console.log('ENTRANDO!!!!!!!');
+const CrearNotificacion=()=> {  
   // Variables de estado manejar loading y mensajes de retroalimentación
   const [loading, setLoading] = useState(false);
     // 1. Crear la referencia con useRef
@@ -18,7 +17,7 @@ const CrearNotificacion=()=> {
   //Función que ejecuta la inserción de registros en la DB
   const handleSubmit = async (values: crearNotificacionDTO) => {
     setLoading(true);
-    console.log(`En el handleSubmit!!! URL: ${urlNotificaciones}`);
+    //console.log(`En el handleSubmit!!! URL: ${urlNotificaciones}`);
     try {
       const datosAEnviar = {
       ...values,
@@ -59,8 +58,7 @@ const CrearNotificacion=()=> {
   }
 };
 
-  return(
-    
+  return(    
     <>
     <div className="container">
       <h5>

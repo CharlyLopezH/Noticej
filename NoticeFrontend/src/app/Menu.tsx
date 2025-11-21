@@ -34,13 +34,10 @@ const Menu=()=>{
             >
               <i className="bi bi-plus-circle me-1"></i>
               Registrar
-            </NavLink>
-            
+            </NavLink>            
             </>
-          }
-          
+          }          
           />          
-
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Menu from "./app/Menu";
-import IndiceNotificaciones from "./app/notificaciones/IndiceNotificaciones";
+//import IndiceNotificaciones from "./app/notificaciones/IndiceNotificaciones";
 import CrearNotificacion from "./app/notificaciones/CrearNotificacion";
 import type { claim } from "./app/auth/auth.model";
 import AutenticacionContext from "./app/auth/AutenticacionContext";
