@@ -176,3 +176,4 @@ C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\bin\Debug\net8.0\Microsoft.
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

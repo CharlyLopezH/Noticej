@@ -15,7 +15,7 @@ namespace NoticeAPI.Endpoints
         {
 
             //Endpoint para obtener todas las notificaciones *Sin paginar* y con cache por 30 seg.
-            group.MapGet("/todas", ObtenerTodas).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("notificaciones-get"));
+            group.MapGet("/todas", ObtenerTodas).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("notificaciones-get")).RequireAuthorization();
             //Endpoint para crear una notificación
             group.MapPost("/", CrearNotificacion);
 
