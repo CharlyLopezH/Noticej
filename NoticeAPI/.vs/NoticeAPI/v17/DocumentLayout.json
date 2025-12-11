@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\endpoints\\notificacionesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:endpoints\\notificacionesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\endpoints\\usuariosendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:endpoints\\usuariosendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\dtos\\respuestaautenticaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:dtos\\respuestaautenticaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\validaciones\\utilidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:validaciones\\utilidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\validaciones\\credencialesusuariodtovalidador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:validaciones\\credencialesusuariodtovalidador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\endpoints\\notificacionesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:endpoints\\notificacionesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,28 +46,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "UsuariosEndpoints.cs",
+              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\UsuariosEndpoints.cs",
+              "RelativeDocumentMoniker": "Endpoints\\UsuariosEndpoints.cs",
+              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\UsuariosEndpoints.cs",
+              "RelativeToolTip": "Endpoints\\UsuariosEndpoints.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAEwB4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T19:24:53.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RespuestaAutenticacionDTO.cs",
+              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\DTOs\\RespuestaAutenticacionDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\RespuestaAutenticacionDTO.cs",
+              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\DTOs\\RespuestaAutenticacionDTO.cs",
+              "RelativeToolTip": "DTOs\\RespuestaAutenticacionDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T19:24:20.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Utilidades.cs",
+              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Validaciones\\Utilidades.cs",
+              "RelativeDocumentMoniker": "Validaciones\\Utilidades.cs",
+              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Validaciones\\Utilidades.cs",
+              "RelativeToolTip": "Validaciones\\Utilidades.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T19:00:27.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CredencialesUsuarioDTOValidador.cs",
+              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Validaciones\\CredencialesUsuarioDTOValidador.cs",
+              "RelativeDocumentMoniker": "Validaciones\\CredencialesUsuarioDTOValidador.cs",
+              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Validaciones\\CredencialesUsuarioDTOValidador.cs",
+              "RelativeToolTip": "Validaciones\\CredencialesUsuarioDTOValidador.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T18:58:34.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "NotificacionesEndpoints.cs",
               "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\NotificacionesEndpoints.cs",
               "RelativeDocumentMoniker": "Endpoints\\NotificacionesEndpoints.cs",
               "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\NotificacionesEndpoints.cs",
               "RelativeToolTip": "Endpoints\\NotificacionesEndpoints.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBEAAACXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvw4AAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T18:39:06.616Z",
+              "WhenOpened": "2025-12-10T21:22:38.979Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\appsettings.Development.json",
-              "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABpAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-27T20:07:45.518Z",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T14:24:04.589Z",
               "EditorCaption": ""
             }
           ]

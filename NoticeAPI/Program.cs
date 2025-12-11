@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using NoticeAPI;
 using NoticeAPI.Endpoints;
 using NoticeAPI.Repositorios;
+using NoticeAPI.Utilidades;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -50,8 +52,20 @@ builder.Services.AddSwaggerGen();
 //Servicio de Automaper
 builder.Services.AddAutoMapper(typeof(Program));
 
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
 //Servicios de Seguridad para protección de endpoints
-builder.Services.AddAuthentication().AddJwtBearer();
+builder.Services.AddAuthentication().AddJwtBearer(opciones=> 
+    opciones.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = Llaves.ObtenerLlave(builder.Configuration).FirstOrDefault(),
+        //IssuerSigningKeys = Llaves.ObtenerTodasLasLlaves(builder.Configuration), //Para permitir rotación de llaves
+        ClockSkew = TimeSpan.Zero
+    });
 builder.Services.AddAuthorization();
 
 //Repositorios
@@ -75,8 +89,8 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.UseCors("CorsPolicy");
 app.UseOutputCache();
+app.UseAuthentication();
 app.UseAuthorization();
-//app.UseAuthentication();
 
 //Uso de la autenticación y autorización
 
@@ -85,4 +99,5 @@ app.MapGet("/test-cors", () => "CORS funciona!").RequireCors("CorsPolicy");
 //app.MapGet("/", () => "Hello World! ").RequireCors("CorsPolicy");
 app.MapGroup("/entes").MapEntes();
 app.MapGroup("/notificaciones").MapNotificaciones();
+app.MapGroup("/usuarios").MapUsuarios(); //El problema es con esto ojo ds!!
 app.Run();

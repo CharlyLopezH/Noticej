@@ -1,5 +1,6 @@
 ﻿
 using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
@@ -15,6 +16,7 @@ namespace NoticeAPI.Endpoints
         {
 
             //Endpoint para obtener todas las notificaciones *Sin paginar* y con cache por 30 seg.
+            //Requiere autorización
             group.MapGet("/todas", ObtenerTodas).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("notificaciones-get")).RequireAuthorization();
             //Endpoint para crear una notificación
             group.MapPost("/", CrearNotificacion);
@@ -46,9 +48,17 @@ namespace NoticeAPI.Endpoints
         }
 
         //Crea una notificación
-        static async Task<Created<NotificacionDTO>> CrearNotificacion(CrearNotifcacionDTO crearNotifcacionDTO, IRepositorioNotificaciones repositorio,
-            IOutputCacheStore outputCacheStore, IMapper mapper)
+        static async Task<Results<Created<NotificacionDTO>,ValidationProblem>> 
+            CrearNotificacion(CrearNotifcacionDTO crearNotifcacionDTO, IRepositorioNotificaciones repositorio,
+            IOutputCacheStore outputCacheStore, IMapper mapper, IValidator<CrearNotifcacionDTO> validador)
         {
+            var resultadoValidacion = await validador.ValidateAsync(crearNotifcacionDTO);
+            if(!resultadoValidacion.IsValid)
+            {
+                return TypedResults.ValidationProblem(resultadoValidacion.ToDictionary());
+            }
+
+
             var notificacion = mapper.Map<Notificacion>(crearNotifcacionDTO);
             var id = await repositorio.Crear(notificacion);
             await outputCacheStore.EvictByTagAsync("notificaciones-get", default);
