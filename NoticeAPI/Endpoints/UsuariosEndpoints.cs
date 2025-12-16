@@ -83,18 +83,18 @@ namespace NoticeAPI.Endpoints
             }
         }
 
-        //static async Task<Results<NoContent, NotFound>> HacerAdmin(EditarClaimDTO editarClaimDTO,
-        //    [FromServices] UserManager<IdentityUser> userManager)
-        //{
-        //    var usuario = await userManager.FindByEmailAsync(editarClaimDTO.Email);
-        //    if (usuario is null)
-        //    {
-        //        return TypedResults.NotFound();
-        //    }
+        static async Task<Results<NoContent, NotFound>> HacerAdmin(EditarClaimDTO editarClaimDTO,
+            [FromServices] UserManager<IdentityUser> userManager)
+        {
+            var usuario = await userManager.FindByEmailAsync(editarClaimDTO.Email);
+            if (usuario is null)
+            {
+                return TypedResults.NotFound();
+            }
 
-        //    await userManager.AddClaimAsync(usuario, new Claim("esadmin", "true"));
-        //    return TypedResults.NoContent();
-        //}
+            await userManager.AddClaimAsync(usuario, new Claim("esadmin", "true"));
+            return TypedResults.NoContent();
+        }
 
         //static async Task<Results<NoContent, NotFound>> RemoverAdmin(EditarClaimDTO editarClaimDTO,
         //   [FromServices] UserManager<IdentityUser> userManager)

@@ -21,6 +21,15 @@ var frontend_url = builder.Configuration.GetValue<string>("frontend_url") ?? "ht
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+//Identity 
+builder.Services.AddIdentityCore<IdentityUser>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+builder.Services.AddScoped<UserManager<IdentityUser>>();
+builder.Services.AddScoped<SignInManager<IdentityUser>>();
+
+
 builder.Services.AddCors(opciones =>
 {
     opciones.AddPolicy("CorsPolicy", policy =>
