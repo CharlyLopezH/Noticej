@@ -51,7 +51,7 @@ namespace NoticeAPI.Endpoints
                     await ConstruirToken(credencialesUsuarioDTO, configuration, userManager);
                 return TypedResults.Ok(credencialesRespuesta);
             }
-            else
+            else //No se pudo crear la cuenta de usuario
             {
                 return TypedResults.BadRequest(resultado.Errors);
             }
@@ -96,18 +96,18 @@ namespace NoticeAPI.Endpoints
             return TypedResults.NoContent();
         }
 
-        //static async Task<Results<NoContent, NotFound>> RemoverAdmin(EditarClaimDTO editarClaimDTO,
-        //   [FromServices] UserManager<IdentityUser> userManager)
-        //{
-        //    var usuario = await userManager.FindByEmailAsync(editarClaimDTO.Email);
-        //    if (usuario is null)
-        //    {
-        //        return TypedResults.NotFound();
-        //    }
+        static async Task<Results<NoContent, NotFound>> RemoverAdmin(EditarClaimDTO editarClaimDTO,
+           [FromServices] UserManager<IdentityUser> userManager)
+        {
+            var usuario = await userManager.FindByEmailAsync(editarClaimDTO.Email);
+            if (usuario is null)
+            {
+                return TypedResults.NotFound();
+            }
 
-        //    await userManager.RemoveClaimAsync(usuario, new Claim("esadmin", "true"));
-        //    return TypedResults.NoContent();
-        //}
+            await userManager.RemoveClaimAsync(usuario, new Claim("esadmin", "true"));
+            return TypedResults.NoContent();
+        }
 
         //public async static Task<Results<Ok<RespuestaAutenticacionDTO>, NotFound>> RenovarToken(
         //    IServicioUsuarios servicioUsuarios, IConfiguration configuration,
@@ -128,8 +128,7 @@ namespace NoticeAPI.Endpoints
         //    return TypedResults.Ok(respuestaAutenticacionDTO);
         //}
 
-        private async static Task<RespuestaAutenticacionDTO>
-            ConstruirToken(CredencialesUsuarioDTO credencialesUsuarioDTO,
+        private async static Task<RespuestaAutenticacionDTO> ConstruirToken(CredencialesUsuarioDTO credencialesUsuarioDTO,
             IConfiguration configuration, UserManager<IdentityUser> userManager)
         {
             var claims = new List<Claim>

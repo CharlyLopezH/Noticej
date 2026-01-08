@@ -6,7 +6,7 @@ namespace NoticeAPI.Utilidades
     //Clase auxiliar para obtener las llaves de firma desde la configuración
     public static class Llaves
     {
-        public const string IssuerPropio = "my-app";
+        public const string IssuerPropio = "my-app"; 
         private const string SeccionLlaves = "Authentication: Schemes:Bearer:SingingKeys";
         private const string SeccionLlaves_Emisor = "Issuer";
         private const string SeccionLlaves_Valor = "Value";

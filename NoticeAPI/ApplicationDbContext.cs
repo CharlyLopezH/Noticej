@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NoticeAPI.DTOs;
 using NoticeAPI.Entidades;
@@ -7,7 +8,7 @@ using System;
 namespace NoticeAPI
 {
     //public class ApplicationDbContext : DbContext //Sin Identity
-    public class ApplicationDbContext : IdentityDbContext //Con esto se configuran todas las tablas del susbsistema de Identity
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser> //Con esto se configuran todas las tablas del susbsistema de Identity
     {
         // Constructor para la aplicación (inyección de dependencias)
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -23,7 +24,14 @@ namespace NoticeAPI
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder); // Necesario para Identity
-            // Configuraciones adicionales de las entidades pueden ir aquí            
+            // Configuraciones adicionales de las entidades 
+            modelBuilder.Entity<IdentityUser>().ToTable("Usuarios");
+            modelBuilder.Entity<IdentityRole>().ToTable("Roles");
+            modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("RolesClaims");
+            modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("UsuariosClaims");
+            modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("UsuariosLogins");
+            modelBuilder.Entity<IdentityUserRole<string>>().ToTable("UsuariosRoles");
+            modelBuilder.Entity<IdentityUserToken<string>>().ToTable("UsuariosTokens");
         }
 
         //Mapeo de las entidades a las tablas de la base de datos (**No ejecutar update-database en el PM si no están mapeadas)

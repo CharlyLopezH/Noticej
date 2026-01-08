@@ -22,11 +22,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
-//Identity 
+//configuración de identity en el contexto de la app de usuarios
 builder.Services.AddIdentityCore<IdentityUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
+
+//Manejo de usuarios
 builder.Services.AddScoped<UserManager<IdentityUser>>();
+//Manejo del login de usuarios
 builder.Services.AddScoped<SignInManager<IdentityUser>>();
 
 
@@ -68,8 +71,8 @@ builder.Services.AddAuthentication().AddJwtBearer(opciones=>
     opciones.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = false,
-        ValidateAudience = true,
-        ValidateLifetime = true,
+        ValidateAudience = false,
+        ValidateLifetime = false,
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = Llaves.ObtenerLlave(builder.Configuration).FirstOrDefault(),
         //IssuerSigningKeys = Llaves.ObtenerTodasLasLlaves(builder.Configuration), //Para permitir rotación de llaves
@@ -105,8 +108,8 @@ app.UseAuthorization();
 
 
 app.MapGet("/test-cors", () => "CORS funciona!").RequireCors("CorsPolicy");
+app.MapGroup("/usuarios").MapUsuarios(); 
 //app.MapGet("/", () => "Hello World! ").RequireCors("CorsPolicy");
 app.MapGroup("/entes").MapEntes();
 app.MapGroup("/notificaciones").MapNotificaciones();
-app.MapGroup("/usuarios").MapUsuarios(); //El problema es con esto ojo ds!!
 app.Run();
