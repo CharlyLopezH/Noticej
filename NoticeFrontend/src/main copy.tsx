@@ -4,7 +4,7 @@ import './Styles.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import CrearNotificacion from './app/notificaciones/CrearNotificacion'
 import IndiceNotificaciones from './app/notificaciones/IndiceNotificaciones'
-import Menu from './app/Menu'
+import Menu from './utils/Menu'
 import AutenticacionContext from './app/auth/AutenticacionContext'
 import type { claim } from './app/auth/auth.model'
 

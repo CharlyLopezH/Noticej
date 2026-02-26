@@ -48,7 +48,7 @@ namespace NoticeAPI.Endpoints
             if (resultado.Succeeded)
             {
                 var credencialesRespuesta =
-                    await ConstruirToken(credencialesUsuarioDTO, configuration, userManager);
+                await ConstruirToken(credencialesUsuarioDTO, configuration, userManager);
                 return TypedResults.Ok(credencialesRespuesta);
             }
             else //No se pudo crear la cuenta de usuario

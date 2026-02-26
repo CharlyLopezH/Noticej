@@ -18,7 +18,7 @@ const useNotificacionesData=(props: useNotificacionesDataProps)=>{
     const {showErrorAlert, getErrorMessage} = useAxiosErrorHandler();
 
 
-//Experimental ****
+//**** estableciendo el apiURL - endPoint
     console.log(props.apiURL+ ' props.API Dentro del hook useNotificacionesData');
 ///    
     //Variables para el buscador

@@ -15,7 +15,6 @@ var ambiente = builder.Configuration.GetValue<string>("ambiente");
 var frontend_url = builder.Configuration.GetValue<string>("frontend_url") ?? "http://localhost:5173";
 
 
-
 //Servicios
 // Configuración correcta del DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

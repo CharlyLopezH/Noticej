@@ -2,26 +2,23 @@ import { useContext, useEffect, useState, type ReactElement } from "react"
 import AutenticacionContext from "./AutenticacionContext";
 
 const Autorizado=(props:AutorizadoProps)=>{
-
-    //El usuario está autorizado
-    const [userAutorizado, SetUserAutorizado]=useState(true);
+    const [estaAutorizado, setEstaAutorizado]=useState(true); //Esto debe venir de un claim
     const {claims} = useContext(AutenticacionContext);
-
-    useEffect(()=>{
-        //Verificación del rol del usuario; revisa que exista un rol
-        if(props.role){ //La propiedad usuario tiene nombre y tiene un rol
-             const indice = claims.findIndex(claim=>
-                          claim.nombre==='role' && claim.valor===props.role
-                          )    
-                         SetUserAutorizado(indice > -1);
+    
+    //Este use controla si un usuario está o no autorizado
+    useEffect(() => {
+        if (props.role) {
+            const indice = claims.findIndex(claim =>
+                claim.nombre === 'role' && claim.valor === props.role)
+            setEstaAutorizado(indice > -1);
         } else {
-            SetUserAutorizado(claims.length>0);
+            setEstaAutorizado(claims.length > 0);
         }
-    },[claims,props.role])
+    }, [claims, props.role])
     
     return(
         <>
-            {userAutorizado ? props.autorizado : props.noAutorizado}
+            {estaAutorizado ? props.autorizado : props.noAutorizado} 
         </>
     )
 
@@ -29,7 +26,7 @@ const Autorizado=(props:AutorizadoProps)=>{
 export default Autorizado
 
 interface AutorizadoProps {
-    autorizado: ReactElement;
-    noAutorizado?:ReactElement;
-    role?:string;
+ autorizado: ReactElement;
+ noAutorizado?:ReactElement;
+ role?:string;
 }
