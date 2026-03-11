@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using NoticeAPI.DTOs;
 using NoticeAPI.Filtros;
+using NoticeAPI.Servicios;
 using NoticeAPI.Utilidades;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -20,15 +21,16 @@ namespace NoticeAPI.Endpoints
             group.MapPost("/login", Login)
                .AddEndpointFilter<FiltroValidaciones<CredencialesUsuarioDTO>>();
 
-            //group.MapPost("/haceradmin", HacerAdmin)
-            //    .AddEndpointFilter<FiltroValidaciones<EditarClaimDTO>>()
-            // .RequireAuthorization("esadmin");
+            group.MapPost("/haceradmin", HacerAdmin)
+                .AddEndpointFilter<FiltroValidaciones<EditarClaimDTO>>()
+                .RequireAuthorization("EsAdmin");
 
-            //group.MapPost("/removeradmin", RemoverAdmin)
-            //   .AddEndpointFilter<FiltroValidaciones<EditarClaimDTO>>()
-            //   .RequireAuthorization("esadmin");
+            group.MapPost("/removeradmin", RemoverAdmin)
+               .AddEndpointFilter<FiltroValidaciones<EditarClaimDTO>>()
+               .RequireAuthorization("EsAdmin");
 
-            //group.MapGet("/renovarToken", RenovarToken).RequireAuthorization();
+            //Cualquiera puede renovar su token, pero debe estar autenticado y no es necesario ser admin.
+            group.MapGet("/renovarToken", RenovarToken).RequireAuthorization();
 
             return group;
         }
@@ -92,7 +94,7 @@ namespace NoticeAPI.Endpoints
                 return TypedResults.NotFound();
             }
 
-            await userManager.AddClaimAsync(usuario, new Claim("esadmin", "true"));
+            await userManager.AddClaimAsync(usuario, new Claim("EsAdmin", "true"));
             return TypedResults.NoContent();
         }
 
@@ -105,28 +107,28 @@ namespace NoticeAPI.Endpoints
                 return TypedResults.NotFound();
             }
 
-            await userManager.RemoveClaimAsync(usuario, new Claim("esadmin", "true"));
+            await userManager.RemoveClaimAsync(usuario, new Claim("EsAdmin", "true"));
             return TypedResults.NoContent();
         }
 
-        //public async static Task<Results<Ok<RespuestaAutenticacionDTO>, NotFound>> RenovarToken(
-        //    IServicioUsuarios servicioUsuarios, IConfiguration configuration,
-        //    [FromServices] UserManager<IdentityUser> userManager)
-        //{
-        //    var usuario = await servicioUsuarios.ObtenerUsuario();
+        public async static Task<Results<Ok<RespuestaAutenticacionDTO>, NotFound>> RenovarToken(
+            IServicioUsuarios servicioUsuarios, IConfiguration configuration,
+            [FromServices] UserManager<IdentityUser> userManager)
+        {
+            var usuario = await servicioUsuarios.ObtenerUsuario();
 
-        //    if (usuario is null)
-        //    {
-        //        return TypedResults.NotFound();
-        //    }
+            if (usuario is null)
+            {
+                return TypedResults.NotFound();
+            }
 
-        //    var credencialesUsuarioDTO = new CredencialesUsuarioDTO { Email = usuario.Email! };
+            var credencialesUsuarioDTO = new CredencialesUsuarioDTO { Email = usuario.Email! };
 
-        //    var respuestaAutenticacionDTO = await ConstruirToken(credencialesUsuarioDTO, configuration,
-        //        userManager);
+            var respuestaAutenticacionDTO = await ConstruirToken(credencialesUsuarioDTO, configuration,
+                userManager);
 
-        //    return TypedResults.Ok(respuestaAutenticacionDTO);
-        //}
+            return TypedResults.Ok(respuestaAutenticacionDTO);
+        }
 
         private async static Task<RespuestaAutenticacionDTO> ConstruirToken(CredencialesUsuarioDTO credencialesUsuarioDTO,
             IConfiguration configuration, UserManager<IdentityUser> userManager)
@@ -145,7 +147,7 @@ namespace NoticeAPI.Endpoints
             var llave = Llaves.ObtenerLlave(configuration);
             var creds = new SigningCredentials(llave.First(), SecurityAlgorithms.HmacSha256);
 
-            var expiracion = DateTime.UtcNow.AddYears(1);
+            var expiracion = DateTime.UtcNow.AddHours(24);
 
             var tokenDeSeguridad = new JwtSecurityToken(issuer: null, audience: null, claims: claims,
                 expires: expiracion, signingCredentials: creds);

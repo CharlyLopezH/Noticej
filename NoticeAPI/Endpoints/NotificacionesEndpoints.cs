@@ -17,9 +17,9 @@ namespace NoticeAPI.Endpoints
 
             //Endpoint para obtener todas las notificaciones *Sin paginar* y con cache por 30 seg.
             //Requiere autorización
-            group.MapGet("/todas", ObtenerTodas).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("notificaciones-get")).RequireAuthorization();
+            group.MapGet("/todas", ObtenerTodas).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("notificaciones-get")).RequireAuthorization("EsAdmin");
             //Endpoint para crear una notificación
-            group.MapPost("/", CrearNotificacion);
+            group.MapPost("/", CrearNotificacion).RequireAuthorization("EsAdmin");
 
             //Regresa todas las notificaciones *Paginadas* y con cache por 15 seg.
             group.MapGet("/", Obtener).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("notificaciones-get"));
@@ -32,7 +32,7 @@ namespace NoticeAPI.Endpoints
             //Endpoint para borrar una notificación por Id
             group.MapDelete("/{id:int}", Borrar);
             //Endpoint para actualizar una notificación por Id
-            group.MapPut("/{id:int}", Actualizar).DisableAntiforgery();
+            group.MapPut("/{id:int}", Actualizar).DisableAntiforgery().RequireAuthorization("EsAdmin");
             return group;
         }
 

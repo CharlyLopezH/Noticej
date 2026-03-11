@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using NoticeAPI;
 using NoticeAPI.Endpoints;
 using NoticeAPI.Repositorios;
+using NoticeAPI.Servicios;
 using NoticeAPI.Utilidades;
 using System.Text;
 
@@ -60,28 +61,42 @@ builder.Services.AddOutputCache();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+
 //Servicio de Automaper
 builder.Services.AddAutoMapper(typeof(Program));
-
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 //Servicios de Seguridad para protección de endpoints
-builder.Services.AddAuthentication().AddJwtBearer(opciones=> 
+builder.Services.AddAuthentication().AddJwtBearer(opciones =>
+{
+    opciones.MapInboundClaims = false;
+
     opciones.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = false,
         ValidateAudience = false,
-        ValidateLifetime = false,
+        ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = Llaves.ObtenerLlave(builder.Configuration).FirstOrDefault(),
-        //IssuerSigningKeys = Llaves.ObtenerTodasLasLlaves(builder.Configuration), //Para permitir rotación de llaves
-        ClockSkew = TimeSpan.Zero
-    });
-builder.Services.AddAuthorization();
+        //IssuerSigningKey = Llaves.ObtenerLlave(builder.Configuration).First(),
+        IssuerSigningKeys = Llaves.ObtenerTodasLasLlaves(builder.Configuration),
+        ClockSkew = TimeSpan.FromMinutes(1)
+    };
+
+});
+
+    builder.Services.AddAuthorizationBuilder()
+        .AddPolicy("EsAdmin", policy => 
+        policy.RequireClaim("role", "admin"));
 
 //Repositorios
 builder.Services.AddScoped<IRepositorioNotificaciones, RepositorioNotificaciones>();
 builder.Services.AddScoped<IRepositorioEntes, RepositorioEntes>();
+
+//Alta de servicios personalizados como un manejador de usuarios, imágenes etc.
+builder.Services.AddTransient<IServicioUsuarios, ServicioUsuarios>();
+
+
 builder.Services.AddHttpContextAccessor();
 
 //Fin de la configuración de servicios

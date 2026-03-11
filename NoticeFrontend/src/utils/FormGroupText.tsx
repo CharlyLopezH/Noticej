@@ -9,10 +9,12 @@ const FormGroupText=(props: formGroupTextProps)=> {
 
             {props.label ? <label htmlFor={props.campo}>{props.label}</label> : null} 
             <Field type={props.type} name={props.campo} className="form-control"
-            placeholder={props.placeholder}     style={{  backgroundColor: 'white !important',
-        WebkitBoxShadow: '0 0 0 1000px white inset', // Truco para autocompletado en Chrome
-        boxShadow: '0 0 0 1000px white inset'
-    }}
+            placeholder={props.placeholder}   
+            autoComplete={props.type === 'password' ? 'new-password' : 'off'}  
+            style={{  backgroundColor: 'white !important',
+                      WebkitBoxShadow: '0 0 0 1000px white inset', // Truco para autocompletado en Chrome
+                      boxShadow: '0 0 0 1000px white inset'
+                    }}
             />
             <ErrorMessage name={props.campo}>{mensaje =>
                 <MostrarErrorCampo mensaje={mensaje} />
